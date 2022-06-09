@@ -14,8 +14,18 @@ class Funcoes
 	Ano 1700 = século 17
 
      * */
-    public function SeculoAno(int $ano): int {
-        
+    public function SeculoAno(int $ano) {
+        $divider_float = $ano / 100;
+        $divider_int = intval($ano / 100);
+
+        if ($divider_float > $divider_int)
+        {
+            return $divider_int + 1;
+        }
+        else
+        {
+            return $divider_int;
+        }
     }
 
     
