@@ -14,29 +14,27 @@ class Funcoes
 	Ano 1700 = século 17
 
      * */
-    public function SeculoAno(int $ano) {
+    public function SeculoAno(int $ano)
+    {
         $divider_float = $ano / 100;
         $divider_int = intval($ano / 100);
 
-        if ($divider_float > $divider_int)
-        {
+        if ($divider_float > $divider_int) {
             return $divider_int + 1;
-        }
-        else
-        {
+        } else {
             return $divider_int;
         }
     }
 
-    
-	
-	
-	
-	
-	
-	
-	
-	/*
+
+
+
+
+
+
+
+
+    /*
 
     Desenvolva uma função que receba como parâmetro um número inteiro e retorne o numero primo imediatamente anterior ao número recebido
 
@@ -46,8 +44,39 @@ class Funcoes
     Número = 29 resposta = 23
 
      * */
-    public function PrimoAnterior(int $numero): int {
-        
+    public function PrimoAnterior(int $numero): int
+    {
+        $result = 0;
+
+        if (!function_exists('is_prime')) {
+            function is_prime(int $num)
+            {
+                $counter = 0;
+
+                for ($i = 2; $i < $num; $i++) {
+                    if ($num % $i == 0) {
+                        $counter++;
+                        break;
+                    }
+                }
+
+                if ($counter == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+
+        for ($i = $numero - 1; $i > 1; $i--) {
+            $p = is_prime($i);
+            if ($p == true) {
+                $result = $i;
+                return $result;
+                break;
+            }
+        }
     }
 
 
@@ -75,16 +104,16 @@ class Funcoes
 	resposta = 25
 
      * */
-    public function SegundoMaior(array $arr): int {
-        
+    public function SegundoMaior(array $arr): int
+    {
     }
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 
     /*
    Desenvolva uma função que receba como parâmetro um array de números inteiros e responda com TRUE or FALSE se é possível obter uma sequencia crescente removendo apenas um elemento do array.
@@ -115,8 +144,8 @@ class Funcoes
     [3, 5, 67, 98, 3] true
 
      * */
-    
-	public function SequenciaCrescente(array $arr): boolean {
-        
+
+    public function SequenciaCrescente(array $arr): boolean
+    {
     }
 }
