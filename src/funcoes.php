@@ -106,6 +106,10 @@ class Funcoes
      * */
     public function SegundoMaior(array $arr): int
     {
+        $flat_array = array_merge(...$arr);
+        $max = max($flat_array);
+        $new_array = array_diff( $flat_array, [$max] );
+        return max($new_array);
     }
 
 
